@@ -32,7 +32,7 @@ const Singles = ({ item }) => {
     target: ref,
   });
 
-  const yold = useTransform(scrollYProgress, [0.5, 1], [0, 800]);
+  const yold = useTransform(scrollYProgress, [0.6, 1], [0, 400]);
   const y = useSpring(yold, { stiffness: 400, damping: 30, mass: 3 });
 
   const opacityold = useTransform(scrollYProgress, [0.5, 0.3, 0], [1, 0.2, 0]);
@@ -58,7 +58,7 @@ const Singles = ({ item }) => {
       <motion.div
         ref={ref}
         style={{ y, x, rotate, opacity }}
-        className={`max-w-3xl m-5 ${item.cardColor} rounded-lg shadow-md hover:shadow-lg overflow-hidden transition-shadow duration-300 ease-in-out`}
+        className={`max-w-3xl m-5 ml-8 ${item.cardColor} rounded-lg shadow-md hover:shadow-lg overflow-hidden transition-shadow duration-300 ease-in-out`}
       >
         <div
           className="bg-cover bg-center h-64 w-full"
@@ -90,16 +90,6 @@ const Singles = ({ item }) => {
         </div>
       </motion.div>
     </section>
-
-    // <section className={`${item.color} text-3xl font-bold`}>
-    //   <motion.div
-    //     ref={ref}
-    //     className={`${item.textColor}`}
-    //     style={{ y, x, rotate }}
-    //   >
-    //     {item.text}
-    //   </motion.div>
-    // </section>
   );
 };
 
