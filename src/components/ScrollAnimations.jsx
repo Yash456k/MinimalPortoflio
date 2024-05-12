@@ -42,7 +42,7 @@ const Singles = ({ item }) => {
     damping: 200,
   });
 
-  const xold = useTransform(scrollYProgress, [0.5, 0], [0, 1100]);
+  const xold = useTransform(scrollYProgress, [0.5, 0.3, 0], [0, 300, 1100]);
   const x = useSpring(xold, {
     stiffness: 300,
     mass: 3,
