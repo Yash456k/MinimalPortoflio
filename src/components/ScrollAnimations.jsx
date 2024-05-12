@@ -35,10 +35,10 @@ const Singles = ({ item }) => {
   const rotate = useTransform(scrollYProgress, [0.5, 0], ["0deg", "140deg"]);
 
   return (
-    <section className={`${item.color} text-3xl font-bold snap-center `}>
+    <section className={`${item.color} text-3xl font-bold`}>
       <motion.div
         ref={ref}
-        className={`${item.textColor} relative flex`}
+        className={`${item.textColor}`}
         style={{ y, x, rotate }}
       >
         {item.text}

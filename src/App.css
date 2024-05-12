@@ -5,7 +5,6 @@ html {
   scroll-behavior: smooth;
 }
 body {
-  overflow-x: hidden;
   margin: 0;
   padding: 0;
   background: blue; /* Light background to see progress bar */
@@ -19,6 +18,7 @@ section {
   justify-content: center;
   position: relative;
   scroll-snap-align: center;
+  overflow: hidden;
 }
 
 .progress-bar {
