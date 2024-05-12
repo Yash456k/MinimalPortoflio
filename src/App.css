@@ -5,6 +5,7 @@ html {
   scroll-behavior: smooth;
 }
 body {
+  overflow-x: hidden;
   margin: 0;
   padding: 0;
   background: blue; /* Light background to see progress bar */
@@ -23,7 +24,7 @@ section {
 
 .progress-bar {
   position: fixed;
-  left: 0.5rem; /* Not too far from the screen edge */
+  left: 0.32rem; /* Not too far from the screen edge */
   top: 0;
   border-radius: 50px;
   width: 9px; /* Visible thickness */

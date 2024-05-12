@@ -6,19 +6,22 @@ const items = [
     id: 1,
     text: "White Section",
     color: "bg-white",
+    cardColor: "bg-white",
     textColor: "text-black",
   },
   {
     id: 2,
     text: "Red Section",
-    color: "bg-red-300",
-    textColor: "text-blue-700",
+    color: "bg-red-600",
+    cardColor: "bg-red-200",
+    textColor: "text-blue-600",
   },
   {
     id: 3,
     text: "Black Section",
     color: "bg-black",
-    textColor: "text-white",
+    cardColor: "bg-gray-700",
+    textColor: "text-gray-100",
   },
 ];
 
@@ -29,21 +32,74 @@ const Singles = ({ item }) => {
     target: ref,
   });
 
-  const ynew = useTransform(scrollYProgress, [0.5, 1], [0, 400]);
-  const y = useSpring(ynew);
-  const x = useTransform(scrollYProgress, [0.5, 0], [0, 500]);
-  const rotate = useTransform(scrollYProgress, [0.5, 0], ["0deg", "140deg"]);
+  const yold = useTransform(scrollYProgress, [0.5, 1], [0, 800]);
+  const y = useSpring(yold, { stiffness: 400, damping: 30, mass: 3 });
+
+  const opacityold = useTransform(scrollYProgress, [0.5, 0.49], [1, 0]);
+  const opacity = useSpring(opacityold, {
+    stiffness: 1000,
+    mass: 8,
+    damping: 200,
+  });
+
+  const xold = useTransform(scrollYProgress, [0.5, 0], [0, 1100]);
+  const x = useSpring(xold, {
+    stiffness: 300,
+    mass: 3,
+    damping: 100,
+  });
+
+  const rotate = useTransform(scrollYProgress, [0.5, 0], ["0deg", "40deg"]);
 
   return (
-    <section className={`${item.color} text-3xl font-bold`}>
+    <section
+      className={`flex flex-col items-center justify-center h-screen ${item.color} ${item.textColor}`}
+    >
       <motion.div
         ref={ref}
-        className={`${item.textColor}`}
-        style={{ y, x, rotate }}
+        style={{ y, x, rotate, opacity }}
+        className={`max-w-3xl m-5 ${item.cardColor} rounded-lg shadow-md hover:shadow-lg overflow-hidden transition-shadow duration-300 ease-in-out`}
       >
-        {item.text}
+        <div
+          className="bg-cover bg-center h-64 w-full"
+          style={{
+            backgroundImage: `url(https://t3.ftcdn.net/jpg/01/90/61/20/360_F_190612024_BKjOap5f9q8vf3g5M1G6QXcR73jhd2Fe.jpg`,
+          }}
+        >
+          {/* Image section */}
+        </div>
+
+        <div className="p-6">
+          <h2 className="text-2xl font-bold mb-3">{item.text}</h2>
+          <p className="text-base mb-4">
+            Contrary to popular belief, Lorem Ipsum is not simply random text.
+            It has roots in a piece of classical Latin literature from 45 BC,
+            making it over 2000 years old. Richard McClintock, a Latin professor
+            at Hampden-Sydney College in Virginia, looked up one of the more
+            obscure Latin words, consectetur, from a Lorem Ipsum passage, and
+            going through the cites of the word in classical literature,
+          </p>
+          <a
+            href="www.google.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none transition-colors duration-200"
+          >
+            Visit Project
+          </a>
+        </div>
       </motion.div>
     </section>
+
+    // <section className={`${item.color} text-3xl font-bold`}>
+    //   <motion.div
+    //     ref={ref}
+    //     className={`${item.textColor}`}
+    //     style={{ y, x, rotate }}
+    //   >
+    //     {item.text}
+    //   </motion.div>
+    // </section>
   );
 };
 
@@ -61,10 +117,10 @@ const ScrollAnimations = () => {
   const background = useTransform(
     scrollYProgress,
     [1, 0.5, 0],
-    ["#FFFFFF", "#000000", "#000000"]
+    ["#FFFFFF", "#002379", "#000000"]
   );
 
-  const scaleBound = useTransform(scrollYProgress, [0, 1], [0, 0.8]);
+  const scaleBound = useTransform(scrollYProgress, [0, 1], [0, 0.97]);
 
   const scaleY = useSpring(scaleBound, {
     stiffness: 100,
@@ -84,7 +140,7 @@ const ScrollAnimations = () => {
         setProgressBarOpacity(1);
       } else if (scrollTop >= startFade && scrollTop <= endFade) {
         setProgressBarOpacity(
-          0.9 - (scrollTop - startFade) / (endFade - startFade)
+          0.9 - ((scrollTop - startFade) / (endFade - startFade)) * 10
         );
       } else {
         setProgressBarOpacity(0);
