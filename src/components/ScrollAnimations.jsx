@@ -8,13 +8,15 @@ const items = [
     color: "bg-white",
     cardColor: "bg-white",
     textColor: "text-black",
+    btnColor: "bg-black",
   },
   {
     id: 2,
     text: "Red Section",
-    color: "bg-red-600",
-    cardColor: "bg-red-200",
-    textColor: "text-blue-600",
+    color: "bg-emerald-900",
+    cardColor: "bg-green-600",
+    textColor: "text-black",
+    btnColor: "bg-green-700",
   },
   {
     id: 3,
@@ -22,6 +24,7 @@ const items = [
     color: "bg-black",
     cardColor: "bg-gray-700",
     textColor: "text-gray-100",
+    btnColor: "bg-black",
   },
 ];
 
@@ -32,24 +35,25 @@ const Singles = ({ item }) => {
     target: ref,
   });
 
+  console.log(scrollYProgress);
   const yold = useTransform(scrollYProgress, [0.6, 1], [0, 400]);
   const y = useSpring(yold, { stiffness: 400, damping: 30, mass: 3 });
 
-  const opacityold = useTransform(scrollYProgress, [0.5, 0.3, 0], [1, 0.2, 0]);
+  const opacityold = useTransform(scrollYProgress, [0.5, 0], [1, 0]);
   const opacity = useSpring(opacityold, {
     stiffness: 1000,
     mass: 8,
     damping: 200,
   });
 
-  const xold = useTransform(scrollYProgress, [0.5, 0.3, 0], [0, 300, 1100]);
+  const xold = useTransform(scrollYProgress, [0.5, 0.49, 0], [0, 10, 1000]);
   const x = useSpring(xold, {
     stiffness: 300,
     mass: 3,
     damping: 100,
   });
 
-  const rotate = useTransform(scrollYProgress, [0.5, 0], ["0deg", "40deg"]);
+  const rotate = useTransform(scrollYProgress, [0.5, 0], ["0deg", "20deg"]);
 
   return (
     <section
@@ -58,7 +62,7 @@ const Singles = ({ item }) => {
       <motion.div
         ref={ref}
         style={{ y, x, rotate, opacity }}
-        className={`max-w-3xl m-5 ml-8 ${item.cardColor} rounded-lg shadow-md hover:shadow-lg overflow-hidden transition-shadow duration-300 ease-in-out`}
+        className={`max-w-3xl m-4 ml-8 ${item.cardColor} rounded-lg shadow-md hover:shadow-lg overflow-hidden transition-shadow duration-300 ease-in-out`}
       >
         <div
           className="bg-cover bg-center h-64 w-full"
@@ -83,7 +87,7 @@ const Singles = ({ item }) => {
             href="www.google.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none transition-colors duration-200"
+            className={`inline-block ${item.btnColor} text-white font-bold py-2 px-4 rounded focus:outline-none transition-colors duration-200`}
           >
             Visit Project
           </a>
@@ -107,7 +111,7 @@ const ScrollAnimations = () => {
   const background = useTransform(
     scrollYProgress,
     [1, 0.5, 0],
-    ["#FFFFFF", "#002379", "#000000"]
+    ["#FFFFFF", "#108445", "#000000"]
   );
 
   const scaleBound = useTransform(scrollYProgress, [0, 1], [0, 0.97]);
@@ -147,7 +151,7 @@ const ScrollAnimations = () => {
   return (
     <div ref={ref}>
       <motion.div
-        className="progress-bar"
+        className="progress-bar border border-black border-solid"
         style={{
           scaleY,
           background,

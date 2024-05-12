@@ -22,7 +22,10 @@ const ProjectsIntro = () => {
   });
 
   return (
-    <section className="bg-purple-600 flex justify-center items-center relative">
+    <section
+      className="= flex justify-center items-center relative"
+      style={{ background: "linear-gradient(180deg,#111132,#505064)" }}
+    >
       {/* Background Image */}
       <motion.div
         className="h-full w-full absolute "
@@ -38,7 +41,7 @@ const ProjectsIntro = () => {
       {/* Content */}
       <motion.div
         ref={refer}
-        className="text-3xl font-bold"
+        className=" md:text-8xl text-4xl text-white font-bold font-customSerif"
         style={{ opacity, y }}
       >
         Projects Intro

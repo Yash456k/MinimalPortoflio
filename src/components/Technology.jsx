@@ -35,7 +35,7 @@ const Technology = () => {
       {/* Content */}
       <motion.div
         ref={refer}
-        className="text-3xl font-bold"
+        className="text-3xl font-bold font-custom"
         style={{ opacity }}
       >
         Skilss Section
