@@ -23,11 +23,26 @@ const items = [
 ];
 
 const Singles = ({ item }) => {
+  const ref = useRef(null);
+
+  const { scrollYProgress } = useScroll({
+    target: ref,
+  });
+
+  const ynew = useTransform(scrollYProgress, [0.5, 1], [0, 400]);
+  const y = useSpring(ynew);
+  const x = useTransform(scrollYProgress, [0.5, 0], [0, 500]);
+  const rotate = useTransform(scrollYProgress, [0.5, 0], ["0deg", "140deg"]);
+
   return (
-    <section
-      className={`${item.color} text-3xl font-bold snap-center flex items-center justify-center`}
-    >
-      <div className={`${item.textColor}`}>{item.text}</div>
+    <section className={`${item.color} text-3xl font-bold snap-center `}>
+      <motion.div
+        ref={ref}
+        className={`${item.textColor} relative flex`}
+        style={{ y, x, rotate }}
+      >
+        {item.text}
+      </motion.div>
     </section>
   );
 };
@@ -62,14 +77,14 @@ const ScrollAnimations = () => {
       const { scrollTop, scrollHeight, clientHeight } =
         document.documentElement;
       const totalScrollHeight = scrollHeight - clientHeight;
-      const startFade = totalScrollHeight * 0.8; // Adjust based on when you want to start fading out the bar
+      const startFade = totalScrollHeight * 0.7; // Adjust based on when you want to start fading out the bar
       const endFade = totalScrollHeight;
 
       if (scrollTop < startFade) {
         setProgressBarOpacity(1);
       } else if (scrollTop >= startFade && scrollTop <= endFade) {
         setProgressBarOpacity(
-          1 - (scrollTop - startFade) / (endFade - startFade)
+          0.9 - (scrollTop - startFade) / (endFade - startFade)
         );
       } else {
         setProgressBarOpacity(0);
