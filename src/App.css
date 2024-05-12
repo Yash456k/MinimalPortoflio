@@ -1,0 +1,33 @@
+/* App.css */
+
+html {
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+}
+body {
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  background: blue; /* Light background to see progress bar */
+}
+
+section {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  scroll-snap-align: center;
+}
+
+.progress-bar {
+  position: fixed;
+  left: 0.5rem; /* Not too far from the screen edge */
+  top: 0;
+  border-radius: 50px;
+  width: 9px; /* Visible thickness */
+  height: 100vh; /* Full viewport height */
+  background-color: #ff0000; /* Initially red */
+  z-index: 10; /* High z-index */
+}
