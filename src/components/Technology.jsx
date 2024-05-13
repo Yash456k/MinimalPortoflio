@@ -9,11 +9,7 @@ const Technology = () => {
   });
 
   const x = useTransform(scrollYProgress, [0, 1], ["-100%", "100%"]);
-  const y = useTransform(
-    scrollYProgress,
-    [0, 0.5, 1],
-    ["-200%", "-15%", "300%"]
-  );
+  const y = useTransform(scrollYProgress, [0, 0.5, 1], ["-200%", "0%", "300%"]);
 
   const opacityOld = useTransform(scrollYProgress, [1, 0.5], [0, 1]);
 
@@ -48,7 +44,7 @@ const Technology = () => {
           scale: 1.3,
           backgroundSize: "contain",
           backgroundRepeat: "no-repeat",
-          backgroundPosition: "bottom",
+          backgroundPosition: "center",
         }}
       ></motion.div>
 

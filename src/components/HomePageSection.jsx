@@ -1,19 +1,63 @@
 import React from "react";
+import { useAnimate, useSpring, useMotionValue } from "framer-motion";
 
 const HomePageSection = () => {
+  return <Basic></Basic>;
+};
+
+const Basic = () => {
+  const [scope, animate] = useAnimate();
+
+  const handleAnimation = async () => {
+    // Start animation sequence
+
+    await animate("#box", { opacity: 1 });
+    await animate("#box", { y: 250 }, { duration: 0.9 });
+    await animate("#box", { scale: 70 }, { duration: 0.6 });
+    await animate("#target", { opacity: 0 }, { display: "hidden" });
+
+    // Hide button and show hidden message
+    animate("#button", { opacity: 0 }, { duration: 0.01 });
+    animate("#hidden", { opacity: 1 }, { duration: 0.01 });
+    animate("#box", { opacity: 0 });
+  };
+
   return (
-    <section className="bg-green-600 flex">
-      <div className="h-full w-full flex-1 flex justify-center items-center flex-col">
-        <div>reveal</div>
-        <button className=" text-3xl font-sketch font-bold border-1 border-black border-solid">
-          tap to reveal
+    <section className="bg-[#F5F5DC] flex relative">
+      <div
+        ref={scope}
+        className="relative h-full w-1/2 flex-1 flex justify-center items-center flex-col"
+      >
+        <button
+          onMouseEnter={() => {
+            animate("#button", { rotate: "-20deg" });
+          }}
+          onMouseLeave={async () => {
+            animate("#button", { rotate: "0deg" });
+          }}
+          id="button"
+          onClick={() => {
+            handleAnimation();
+          }}
+          className="z-20 absolute top-8 text-3xl font-sketch font-bold border-2 p-0.5 border-black border-solid"
+        >
+          Tap to reveal
         </button>
+        <div
+          id="box"
+          className="absolute h-10 w-10 top-24 rounded-full bg-black opacity-0 overflow-hidden"
+        ></div>
+        <div id="target" className="text-2xl font-custom m-3">
+          Tap the button above to reveal my current work status!
+        </div>
+        <div id="hidden" className="absolute" style={{ opacity: 0 }}>
+          Hidden text this will be the new div
+        </div>
       </div>
-      <div className=" h-full w-full text-3xl font-bold flex-1 flex justify-center items-center flex-wrap">
+      <div className=" m-3 h-full w-1/2 z-50 text-3xl font-bold flex-1 flex justify-center items-center flex-wrap">
         Home thingsss
       </div>
     </section>
   );
 };
-
 export default HomePageSection;
