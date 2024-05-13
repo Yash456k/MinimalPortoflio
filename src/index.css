@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Courgette&family=Poetsen+One&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Courgette&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poetsen+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Londrina+Sketch&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

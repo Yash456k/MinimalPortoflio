@@ -9,7 +9,11 @@ const Technology = () => {
   });
 
   const x = useTransform(scrollYProgress, [0, 1], ["-100%", "100%"]);
-  const y = useTransform(scrollYProgress, [0, 1], ["-100%", "100%"]);
+  const y = useTransform(
+    scrollYProgress,
+    [0, 0.5, 1],
+    ["-200%", "-15%", "300%"]
+  );
 
   const opacityOld = useTransform(scrollYProgress, [1, 0.5], [0, 1]);
 
@@ -37,11 +41,14 @@ const Technology = () => {
         }}
       ></motion.div>
       <motion.div
-        className="h-full w-full absolute "
+        className="h-full w-full absolute"
         style={{
           y,
-          backgroundImage: "url(/downloadMountain.png)",
-          backgroundSize: "cover",
+          backgroundImage: "url(/mountainsNew.png)",
+          scale: 1.3,
+          backgroundSize: "contain",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "bottom",
         }}
       ></motion.div>
 

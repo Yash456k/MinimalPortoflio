@@ -41,10 +41,10 @@ const ProjectsIntro = () => {
       {/* Content */}
       <motion.div
         ref={refer}
-        className=" md:text-8xl text-4xl text-white font-bold font-customSerif"
+        className=" md:text-[11rem] text-4xl text-white font-bold font-sans"
         style={{ opacity, y }}
       >
-        Projects Intro
+        My projects
       </motion.div>
     </section>
   );

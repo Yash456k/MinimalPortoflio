@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState } from "react";
 import { useScroll, motion, useSpring, useTransform } from "framer-motion";
+import ProjectsIntro from "./ProjectsIntro";
 
 const items = [
   {
@@ -110,8 +111,8 @@ const ScrollAnimations = () => {
   // Transformations for the progress bar
   const background = useTransform(
     scrollYProgress,
-    [1, 0.5, 0],
-    ["#FFFFFF", "#108445", "#000000"]
+    [1, 0.66, 0.33, 0],
+    ["#FFFFFF", "#108445", "#000000", "#000000"]
   );
 
   const scaleBound = useTransform(scrollYProgress, [0, 1], [0, 0.97]);
@@ -158,6 +159,7 @@ const ScrollAnimations = () => {
           opacity: progressBarOpacity, // Use dynamic opacity
         }}
       />
+      <ProjectsIntro />
 
       {items.map((item, index) => (
         <Singles key={index} item={item} />

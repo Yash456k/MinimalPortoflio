@@ -6,6 +6,7 @@ export default {
       fontFamily: {
         custom: ["Courgette", "cursive"],
         customSerif: ["Playfair Display", "serif"],
+        sketch: ["Londrina Sketch", "sans-serif"],
       },
     },
   },

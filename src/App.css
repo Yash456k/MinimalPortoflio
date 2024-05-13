@@ -24,11 +24,12 @@ section {
 
 .progress-bar {
   position: fixed;
-  left: 0.32rem; /* Not too far from the screen edge */
+  left: 0.5rem; /* Not too far from the screen edge */
   top: 0;
   border-radius: 50px;
   width: 9px; /* Visible thickness */
   height: 100vh; /* Full viewport height */
   background-color: #ff0000; /* Initially red */
   z-index: 10; /* High z-index */
+  overflow: hidden;
 }
