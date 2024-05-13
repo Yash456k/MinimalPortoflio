@@ -19,7 +19,10 @@ const Technology = () => {
   });
 
   return (
-    <section className="bg-purple-600 flex justify-center items-center relative">
+    <section
+      className=" flex justify-center items-center relative"
+      style={{ background: "linear-gradient(180deg,#111132,#0c0c1d)" }}
+    >
       {/* Background Image */}
       <motion.div
         className="h-full w-full absolute "
@@ -35,8 +38,8 @@ const Technology = () => {
       {/* Content */}
       <motion.div
         ref={refer}
-        className="text-3xl font-bold font-custom"
-        style={{ opacity }}
+        className="text-3xl md:text-8xl font-bold font-custom text-white"
+        style={{ opacity, zIndex: 3 }}
       >
         Skilss Section
       </motion.div>

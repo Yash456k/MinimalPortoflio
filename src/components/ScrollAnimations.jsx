@@ -36,7 +36,7 @@ const Singles = ({ item }) => {
   });
 
   console.log(scrollYProgress);
-  const yold = useTransform(scrollYProgress, [0.6, 1], [0, 400]);
+  const yold = useTransform(scrollYProgress, [0, 0.5, 1], [-200, 0, 400]);
   const y = useSpring(yold, { stiffness: 400, damping: 30, mass: 3 });
 
   const opacityold = useTransform(scrollYProgress, [0.5, 0], [1, 0]);
@@ -62,7 +62,7 @@ const Singles = ({ item }) => {
       <motion.div
         ref={ref}
         style={{ y, x, rotate, opacity }}
-        className={`max-w-3xl m-4 ml-8 ${item.cardColor} rounded-lg shadow-md hover:shadow-lg overflow-hidden transition-shadow duration-300 ease-in-out`}
+        className={`max-w-3xl m-4 ml-6 ${item.cardColor} rounded-lg shadow-md hover:shadow-lg overflow-hidden transition-shadow duration-300 ease-in-out`}
       >
         <div
           className="bg-cover bg-center h-64 w-full"
