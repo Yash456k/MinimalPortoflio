@@ -36,7 +36,7 @@ const Singles = ({ item }) => {
   });
 
   console.log(scrollYProgress);
-  const yold = useTransform(scrollYProgress, [0, 0.5, 1], [-200, 0, 400]);
+  const yold = useTransform(scrollYProgress, [0.6, 1], [0, 400]);
   const y = useSpring(yold, { stiffness: 400, damping: 30, mass: 3 });
 
   const opacityold = useTransform(scrollYProgress, [0.5, 0], [1, 0]);

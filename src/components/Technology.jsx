@@ -9,6 +9,7 @@ const Technology = () => {
   });
 
   const x = useTransform(scrollYProgress, [0, 1], ["-100%", "100%"]);
+  const y = useTransform(scrollYProgress, [0, 1], ["-100%", "100%"]);
 
   const opacityOld = useTransform(scrollYProgress, [1, 0.5], [0, 1]);
 
@@ -32,13 +33,22 @@ const Technology = () => {
           backgroundImage:
             "url(https://github.com/Yash456k/React_Portfolio/blob/main/public/stars.png?raw=true)",
           backgroundSize: "fit",
+          zIndex: 2,
+        }}
+      ></motion.div>
+      <motion.div
+        className="h-full w-full absolute "
+        style={{
+          y,
+          backgroundImage: "url(/downloadMountain.png)",
+          backgroundSize: "cover",
         }}
       ></motion.div>
 
       {/* Content */}
       <motion.div
         ref={refer}
-        className="text-3xl md:text-8xl font-bold font-custom text-white"
+        className="text-5xl md:text-8xl font-bold font-custom text-white"
         style={{ opacity, zIndex: 3 }}
       >
         Skilss Section
