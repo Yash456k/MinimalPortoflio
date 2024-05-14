@@ -54,7 +54,7 @@ const Basic = () => {
     >
       <div
         ref={scope}
-        className="relative h-full w-1/2 flex-1 flex justify-center items-center flex-col"
+        className="relative h-full w-1/2 flex-1 flex justify-evenly items-center flex-col"
       >
         <motion.button
           onMouseEnter={() => {
@@ -68,7 +68,7 @@ const Basic = () => {
             handleAnimation();
           }}
           style={{ y: yup }}
-          className="z-50 absolute top-8 text-3xl md:text-4xl font-sketch font-bold border-2 p-0.5 border-black border-solid"
+          className="z-50 text-3xl md:text-4xl font-sketch font-bold border-2 p-0.5 border-black border-solid"
         >
           Tap to reveal
         </motion.button>
