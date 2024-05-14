@@ -64,7 +64,7 @@ const Singles = ({ item }) => {
   const opacityold = useTransform(
     scrollYProgress,
     [1, 0.99999999999999, 0.0000000000000001, 0],
-    [0, 1, 1, 0]
+    [0.4, 1, 1, 0]
   );
   const opacity = useSpring(opacityold, {
     stiffness: 1000,
