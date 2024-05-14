@@ -5,6 +5,7 @@ import "./App.css";
 import Technology from "./components/Technology";
 import ProjectsIntro from "./components/ProjectsIntro";
 import SidebarToggle from "./components/SidebarToggle";
+import SkillsPage from "./components/SkillsPage";
 
 function App() {
   return (
@@ -14,7 +15,9 @@ function App() {
 
       <ScrollAnimations />
       <Technology />
-      <HomePageSection />
+      <SkillsPage />
+
+      {/* <HomePageSection /> */}
     </div>
   );
 }
