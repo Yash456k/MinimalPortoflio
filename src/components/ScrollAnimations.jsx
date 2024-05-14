@@ -50,10 +50,14 @@ const Singles = ({ item }) => {
     target: refNew,
   });
 
-  const yold = useTransform(scrollYProgress, [0, 1], [-300, 200]);
+  const yold = useTransform(
+    scrollYProgress,
+    [0, 0.45, 0.55, 1],
+    [-300, 0, 0, 300]
+  );
   const y = useSpring(yold, { stiffness: 400, damping: 30, mass: 3 });
 
-  const opacityold = useTransform(scrollYProgress, [1, 0.5, 0], [0, 0.8, 0]);
+  const opacityold = useTransform(scrollYProgress, [1, 0.5, 0], [0, 1, 0]);
   const opacity = useSpring(opacityold, {
     stiffness: 1000,
     mass: 8,
