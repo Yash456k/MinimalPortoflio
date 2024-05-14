@@ -46,7 +46,7 @@ const Basic = () => {
           onClick={() => {
             handleAnimation();
           }}
-          className="z-20 absolute top-8 text-3xl md:text-4xl font-sketch font-bold border-2 p-0.5 border-black border-solid"
+          className=" absolute top-8 text-3xl md:text-4xl font-sketch font-bold border-2 p-0.5 border-black border-solid"
         >
           Tap to reveal
         </button>
@@ -59,7 +59,9 @@ const Basic = () => {
         </div>
         <div
           id="hidden"
-          className={`${isBlack ? "text-white" : "text-black"} absolute`}
+          className={`${
+            isBlack ? "text-white" : "text-black"
+          } text-2xl font-custom absolute m-3`}
           style={{ opacity: 0 }}
         >
           Hidden text this will be the new div
@@ -68,7 +70,7 @@ const Basic = () => {
       <div
         className={`${
           isBlack ? "text-white" : "text-black"
-        }  m-3 h-full w-1/2 z-50 text-3xl font-bold flex-1 flex justify-center items-center flex-wrap `}
+        }  m-3 h-full w-1/2 text-3xl font-bold flex-1 flex justify-center items-center flex-wrap `}
       >
         Home thingsss
       </div>

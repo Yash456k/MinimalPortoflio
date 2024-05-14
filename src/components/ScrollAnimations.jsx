@@ -30,14 +30,13 @@ const items = [
 ];
 
 const Singles = ({ item }) => {
-  const ref = useRef(null);
+  const refNew = useRef(null);
 
   const { scrollYProgress } = useScroll({
-    target: ref,
+    target: refNew,
   });
 
-  console.log(scrollYProgress);
-  const yold = useTransform(scrollYProgress, [0.6, 1], [0, 400]);
+  const yold = useTransform(scrollYProgress, [0, 1], [-400, 400]);
   const y = useSpring(yold, { stiffness: 400, damping: 30, mass: 3 });
 
   const opacityold = useTransform(scrollYProgress, [0.5, 0], [1, 0]);
@@ -57,11 +56,11 @@ const Singles = ({ item }) => {
   const rotate = useTransform(scrollYProgress, [0.5, 0], ["0deg", "20deg"]);
 
   return (
-    <section
-      className={`flex flex-col items-center justify-center h-screen ${item.color} ${item.textColor}`}
+    <motion.section
+      className={`flex flex-col items-center justify-center full-height ${item.color} ${item.textColor}`}
     >
       <motion.div
-        ref={ref}
+        ref={refNew}
         style={{ y, x, rotate, opacity }}
         className={`max-w-3xl m-4 ml-6 ${item.cardColor} rounded-lg shadow-md hover:shadow-lg overflow-hidden transition-shadow duration-300 ease-in-out`}
       >
@@ -94,7 +93,7 @@ const Singles = ({ item }) => {
           </a>
         </div>
       </motion.div>
-    </section>
+    </motion.section>
   );
 };
 
@@ -146,6 +145,21 @@ const ScrollAnimations = () => {
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  // Update vh property on window resize
+  useEffect(() => {
+    const updateVh = () => {
+      const vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty("--vh", `${vh}px`);
+    };
+
+    updateVh();
+    window.addEventListener("resize", updateVh);
+
+    return () => {
+      window.removeEventListener("resize", updateVh);
     };
   }, []);
 
