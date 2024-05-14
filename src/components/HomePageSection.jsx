@@ -100,7 +100,7 @@ const Basic = () => {
         id="home"
         className={`${
           isBlack ? "text-white" : "text-black"
-        } text-center pr-4 m-3 h-full w-1/2 md:text-6xl text-3xl font-bold flex-1 flex 
+        } text-center pr-4 py-0 m-3 h-full w-1/2 md:text-6xl text-3xl font-bold flex-1 flex 
         flex-col justify-around items-center flex-wrap font-sketch `}
         style={{ y: ydown }}
       >

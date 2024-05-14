@@ -17,18 +17,21 @@ const items = [
     textColor: "text-black",
     btnColor: "bg-black",
     url: "/NotesApp.png",
+    websiteURL: "https://yash456k-basic-notes-mern-app.netlify.app/",
   },
   {
     id: 2,
     title: "Qoutes by Marcus Aurelius",
-    text: `A fullstack website , allowing you to signup/login , and bookmark some handpicked 
-    quotes by Marcus Aurelius. Uses Express, nodeJs and MongoDB(The website might take time to 
-    load on first try ! This is because it is hosted on render's free tier)`,
+    text: ` (The website might take time to 
+    load on first try ! This is because it is hosted on render's free tier) 
+              A fullstack website , allowing you to signup/login , and bookmark some handpicked 
+    quotes by Marcus Aurelius. Uses Express, nodeJs and MongoDB  `,
     color: "bg-emerald-900",
     cardColor: "bg-green-600",
     textColor: "text-black",
     btnColor: "bg-green-700",
     url: "/marcus.png",
+    websiteURL: "https://marcus-aurelius-3n3y.onrender.com/",
   },
   {
     id: 3,
@@ -36,10 +39,11 @@ const items = [
     text: `A porfolio website I made using React, framer-motion and TailwindCSS.I wanted to 
     try out framer-motion and I have used it extensively in every part of this website`,
     color: "bg-white",
-    cardColor: "bg-[#F5F5DC]",
+    cardColor: "bg-[#F5F5E6]",
     textColor: "text-black",
     btnColor: "bg-black",
-    url: "/NotesApp.png",
+    url: "/MinimalPortfolio.png",
+    websiteURL: "/",
   },
 ];
 
@@ -101,7 +105,7 @@ const Singles = ({ item }) => {
           <h2 className="text-xl font-bold mb-3">{item.title}</h2>
           <p className="text-lg sm:text-sm mb-4">{item.text}</p>
           <a
-            href="www.google.com"
+            href={`${item.websiteURL}`}
             target="_blank"
             rel="noopener noreferrer"
             className={`inline-block ${item.btnColor} text-white font-bold py-2 px-4 rounded focus:outline-none transition-colors duration-200`}
@@ -131,7 +135,7 @@ const ScrollAnimations = () => {
     ["#F5F5DC", "#108445", "#FFFFFF", "#FFFFFF"]
   );
 
-  const scaleBound = useTransform(scrollYProgress, [0, 1], [0, 0.97]);
+  const scaleBound = useTransform(scrollYProgress, [0, 1], [0, 0.88]);
 
   const scaleY = useSpring(scaleBound, {
     stiffness: 100,
@@ -183,7 +187,7 @@ const ScrollAnimations = () => {
   return (
     <div ref={ref}>
       <motion.div
-        className="progress-bar border border-black border-solid"
+        className="progress-bar border border-black"
         style={{
           scaleY,
           background,
