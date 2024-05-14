@@ -53,7 +53,7 @@ const Singles = ({ item }) => {
   const yold = useTransform(
     scrollYProgress,
     [0, 0.45, 0.55, 1],
-    [-300, 0, 0, 300]
+    [-200, 0, 0, 200]
   );
   const y = useSpring(yold, { stiffness: 400, damping: 30, mass: 3 });
 
