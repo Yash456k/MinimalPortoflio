@@ -169,21 +169,6 @@ const ScrollAnimations = () => {
     };
   }, []);
 
-  // Update vh property on window resize
-  useEffect(() => {
-    const updateVh = () => {
-      const vh = window.innerHeight * 0.01;
-      document.documentElement.style.setProperty("--vh", `${vh}px`);
-    };
-
-    updateVh();
-    window.addEventListener("resize", updateVh);
-
-    return () => {
-      window.removeEventListener("resize", updateVh);
-    };
-  }, []);
-
   return (
     <div ref={ref}>
       <motion.div
@@ -195,10 +180,11 @@ const ScrollAnimations = () => {
         }}
       />
       <ProjectsIntro />
-
-      {items.map((item, index) => (
-        <Singles key={index} item={item} />
-      ))}
+      <div>
+        {items.map((item, index) => (
+          <Singles key={index} item={item} />
+        ))}
+      </div>
     </div>
   );
 };
