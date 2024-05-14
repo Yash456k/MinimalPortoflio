@@ -54,7 +54,7 @@ const Technology = () => {
         className="text-5xl md:text-8xl font-bold font-custom text-white"
         style={{ opacity, zIndex: 3 }}
       >
-        Skilss Section
+        Skills Section
       </motion.div>
     </section>
   );
