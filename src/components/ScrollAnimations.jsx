@@ -5,27 +5,41 @@ import ProjectsIntro from "./ProjectsIntro";
 const items = [
   {
     id: 1,
-    text: "White Section",
-    color: "bg-white",
+    title: "Fullstack Notes App",
+    text: `The project is Notes app which uses the MERN stack fully , 
+    Frontend i use Zustand for state management , and it communicates with a
+    hosted server written in express , i use mongoDb for database management the user can 
+    login / signup ( i store info using JWT and make sure user is logged in for hours before 
+    they choose to logout ) the user can make a note , update it or delete the notes as they 
+    choose , the notes get saved to each user in database`,
+    color: "bg-black",
     cardColor: "bg-white",
     textColor: "text-black",
     btnColor: "bg-black",
+    url: "/NotesApp.png",
   },
   {
     id: 2,
-    text: "Red Section",
+    title: "Qoutes by Marcus Aurelius",
+    text: `A fullstack website , allowing you to signup/login , and bookmark some handpicked 
+    quotes by Marcus Aurelius. Uses Express, nodeJs and MongoDB(The website might take time to 
+    load on first try ! This is because it is hosted on render's free tier)`,
     color: "bg-emerald-900",
     cardColor: "bg-green-600",
     textColor: "text-black",
     btnColor: "bg-green-700",
+    url: "/marcus.png",
   },
   {
     id: 3,
-    text: "Black Section",
-    color: "bg-black",
-    cardColor: "bg-gray-700",
-    textColor: "text-gray-100",
+    title: `My Current Porfolio Website! (The one you are viewing right now)`,
+    text: `A porfolio website I made using React, framer-motion and TailwindCSS.I wanted to 
+    try out framer-motion and I have used it extensively in every part of this website`,
+    color: "bg-white",
+    cardColor: "bg-[#F5F5DC]",
+    textColor: "text-black",
     btnColor: "bg-black",
+    url: "/NotesApp.png",
   },
 ];
 
@@ -36,17 +50,17 @@ const Singles = ({ item }) => {
     target: refNew,
   });
 
-  const yold = useTransform(scrollYProgress, [0.5, 1], [-50, 200]);
+  const yold = useTransform(scrollYProgress, [0, 1], [-200, 200]);
   const y = useSpring(yold, { stiffness: 400, damping: 30, mass: 3 });
 
-  const opacityold = useTransform(scrollYProgress, [1, 0.5, 0], [0, 1, 0]);
+  const opacityold = useTransform(scrollYProgress, [1, 0.5, 0], [0, 0.8, 0]);
   const opacity = useSpring(opacityold, {
     stiffness: 1000,
     mass: 8,
     damping: 200,
   });
 
-  const xold = useTransform(scrollYProgress, [0.5, 0.49, 0], [0, 10, 1000]);
+  const xold = useTransform(scrollYProgress, [0.5, 0.49, 0], [0, 10, 400]);
   const x = useSpring(xold, {
     stiffness: 300,
     mass: 3,
@@ -62,27 +76,22 @@ const Singles = ({ item }) => {
       <motion.div
         ref={refNew}
         style={{ y, x, rotate, opacity }}
-        className={`max-w-3xl m-4 ml-6 ${item.cardColor} rounded-lg shadow-md hover:shadow-lg overflow-hidden transition-shadow duration-300 ease-in-out`}
+        className={`max-w-3xl m-4 ml-8 ${item.cardColor} rounded-lg shadow-lg hover:shadow-2xl overflow-hidden transition-shadow duration-300 ease-in-out`}
       >
         <div
           className="bg-cover bg-center h-64 w-full"
           style={{
-            backgroundImage: `url(https://t3.ftcdn.net/jpg/01/90/61/20/360_F_190612024_BKjOap5f9q8vf3g5M1G6QXcR73jhd2Fe.jpg`,
+            backgroundImage: `url(${item.url}`,
+            backgroundSize: "cover",
+            backgroundRepeat: "no-repeat",
           }}
         >
           {/* Image section */}
         </div>
 
         <div className="p-6">
-          <h2 className="text-2xl font-bold mb-3">{item.text}</h2>
-          <p className="text-base mb-4">
-            Contrary to popular belief, Lorem Ipsum is not simply random text.
-            It has roots in a piece of classical Latin literature from 45 BC,
-            making it over 2000 years old. Richard McClintock, a Latin professor
-            at Hampden-Sydney College in Virginia, looked up one of the more
-            obscure Latin words, consectetur, from a Lorem Ipsum passage, and
-            going through the cites of the word in classical literature,
-          </p>
+          <h2 className="text-xl font-bold mb-3">{item.title}</h2>
+          <p className="text-lg sm:text-sm mb-4">{item.text}</p>
           <a
             href="www.google.com"
             target="_blank"
@@ -111,7 +120,7 @@ const ScrollAnimations = () => {
   const background = useTransform(
     scrollYProgress,
     [1, 0.66, 0.33, 0],
-    ["#FFFFFF", "#108445", "#000000", "#000000"]
+    ["#F5F5DC", "#108445", "#FFFFFF", "#FFFFFF"]
   );
 
   const scaleBound = useTransform(scrollYProgress, [0, 1], [0, 0.97]);
