@@ -63,7 +63,7 @@ const Singles = ({ item }) => {
 
   const opacityold = useTransform(
     scrollYProgress,
-    [1, 0.9999999999, 0.000000000001, 0],
+    [1, 0.99999999999999, 0.0000000000000001, 0],
     [0, 1, 1, 0]
   );
   const opacity = useSpring(opacityold, {
@@ -85,35 +85,35 @@ const Singles = ({ item }) => {
     <motion.section
       className={`flex flex-col items-center justify-center full-height ${item.color} ${item.textColor}`}
     >
-      <motion.div
-        ref={refNew}
-        style={{ y, x, rotate, opacity }}
-        className={`max-w-3xl m-4 ml-8 ${item.cardColor} rounded-lg shadow-lg hover:shadow-2xl overflow-hidden transition-shadow duration-300 ease-in-out`}
-      >
-        <div
-          className="bg-cover bg-center h-64 w-full"
-          style={{
-            backgroundImage: `url(${item.url}`,
-            backgroundSize: "cover",
-            backgroundRepeat: "no-repeat",
-          }}
+      <div>
+        <motion.div
+          ref={refNew}
+          style={{ y, x, rotate, opacity }}
+          className={`max-w-3xl m-4 ml-8 ${item.cardColor} rounded-lg shadow-lg hover:shadow-2xl overflow-hidden transition-shadow duration-300 ease-in-out`}
         >
-          {/* Image section */}
-        </div>
+          <div
+            className="bg-cover bg-center h-64 w-full"
+            style={{
+              backgroundImage: `url(${item.url}`,
+              backgroundSize: "cover",
+              backgroundRepeat: "no-repeat",
+            }}
+          ></div>
 
-        <div className="p-6">
-          <h2 className="text-xl font-bold mb-3">{item.title}</h2>
-          <p className="text-lg sm:text-sm mb-4">{item.text}</p>
-          <a
-            href={`${item.websiteURL}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`inline-block ${item.btnColor} text-white font-bold py-2 px-4 rounded focus:outline-none transition-colors duration-200`}
-          >
-            Visit Project
-          </a>
-        </div>
-      </motion.div>
+          <div className="p-6">
+            <h2 className="text-xl font-bold mb-3">{item.title}</h2>
+            <p className="text-lg sm:text-sm mb-4">{item.text}</p>
+            <a
+              href={`${item.websiteURL}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`inline-block ${item.btnColor} text-white font-bold py-2 px-4 rounded focus:outline-none transition-colors duration-200`}
+            >
+              Visit Project
+            </a>
+          </div>
+        </motion.div>
+      </div>
     </motion.section>
   );
 };
