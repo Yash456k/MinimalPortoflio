@@ -102,7 +102,13 @@ const Singles = ({ item }) => {
 
           <div className="p-6">
             <h2 className="text-xl font-bold mb-3">{item.title}</h2>
-            <p className="text-lg sm:text-sm mb-4">{item.text}</p>
+            <p
+              className={`${
+                item.id === 1 ? "text-sm" : "text-lg"
+              }  sm:text-sm mb-4`}
+            >
+              {item.text}
+            </p>
             <a
               href={`${item.websiteURL}`}
               target="_blank"
