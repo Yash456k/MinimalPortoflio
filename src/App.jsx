@@ -14,7 +14,7 @@ function App() {
       <HomePageSection />
 
       <ScrollAnimations />
-      <Technology />
+
       <SkillsPage />
 
       {/* <HomePageSection /> */}

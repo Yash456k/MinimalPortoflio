@@ -8,8 +8,32 @@ const ProjectsIntro = () => {
     target: refer,
   });
 
-  const yold = useTransform(scrollYProgress, [1, 0.5, 0], [-800, 0, 800]);
-  const y = useSpring(yold, { stiffness: 400, damping: 30, mass: 3 });
+  const xmyold = useTransform(scrollYProgress, [1, 0.5, 0], [-300, 0, 300]);
+  const xmy = useSpring(xmyold, { stiffness: 400, damping: 30, mass: 3 });
+
+  const xprojectsold = useTransform(
+    scrollYProgress,
+    [1, 0.5, 0],
+    [200, 0, -200]
+  );
+  const xprojects = useSpring(xprojectsold, {
+    stiffness: 400,
+    damping: 30,
+    mass: 3,
+  });
+
+  const yoldmy = useTransform(scrollYProgress, [1, 0.5, 0], [-800, 0, 800]);
+  const yoldprojects = useTransform(
+    scrollYProgress,
+    [1, 0.5, 0],
+    [800, 0, -800]
+  );
+  const y = useSpring(yoldmy, { stiffness: 400, damping: 30, mass: 3 });
+  const yprojects = useSpring(yoldprojects, {
+    stiffness: 400,
+    damping: 30,
+    mass: 3,
+  });
 
   const x = useTransform(scrollYProgress, [0, 1], ["-100%", "100%"]);
 
@@ -41,10 +65,14 @@ const ProjectsIntro = () => {
       {/* Content */}
       <motion.div
         ref={refer}
-        className=" md:text-[11rem] text-4xl text-white font-bold font-sans"
-        style={{ opacity, y }}
+        className="h-[32rem] md:text-[11rem] text-4xl text-white font-bold font-sans flex flex-col justify-around items-center"
+        style={{ opacity }}
       >
-        My projects
+        <motion.div style={{ y, x: xmy }}>My </motion.div>
+        <motion.div style={{ y: yprojects, x: xprojects }}>
+          {" "}
+          projects
+        </motion.div>
       </motion.div>
     </section>
   );

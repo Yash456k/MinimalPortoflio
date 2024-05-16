@@ -4,6 +4,17 @@ import ProjectsIntro from "./ProjectsIntro";
 
 const items = [
   {
+    id: 0,
+    title: `My Projects!`,
+    text: ``,
+    color: "bg-black",
+    cardColor: "bg-white",
+    textColor: "text-black",
+    btnColor: "bg-black",
+    url: "",
+    websiteURL: "",
+  },
+  {
     id: 1,
     title: "Fullstack Notes App",
     text: `The project is Notes app which uses the MERN stack fully , 
@@ -54,30 +65,28 @@ const Singles = ({ item }) => {
     target: refNew,
   });
 
-  const yold = useTransform(
-    scrollYProgress,
-    [0, 0.000000000001, 0.9999999999, 1],
-    [-200, 0, 0, 200]
+  const y = useSpring(
+    useTransform(scrollYProgress, [0, 0.01, 0.99, 1], [-200, 0, 0, 200]),
+    { stiffness: 400, damping: 30, mass: 3 }
   );
-  const y = useSpring(yold, { stiffness: 400, damping: 30, mass: 3 });
 
-  const opacityold = useTransform(
-    scrollYProgress,
-    [1, 0.99999999999999, 0.0000000000000001, 0],
-    [0.4, 1, 1, 0]
+  const opacity = useSpring(
+    useTransform(scrollYProgress, [1, 0.99, 0.01, 0], [0.4, 1, 1, 0]),
+    {
+      stiffness: 1000,
+      mass: 8,
+      damping: 200,
+    }
   );
-  const opacity = useSpring(opacityold, {
-    stiffness: 1000,
-    mass: 8,
-    damping: 200,
-  });
 
-  const xold = useTransform(scrollYProgress, [0.5, 0.49, 0], [0, 10, 400]);
-  const x = useSpring(xold, {
-    stiffness: 300,
-    mass: 3,
-    damping: 100,
-  });
+  const x = useSpring(
+    useTransform(scrollYProgress, [0.5, 0.49, 0], [0, 10, 400]),
+    {
+      stiffness: 300,
+      mass: 10,
+      damping: 100,
+    }
+  );
 
   const rotate = useTransform(scrollYProgress, [0.5, 0], ["0deg", "20deg"]);
 
@@ -91,17 +100,25 @@ const Singles = ({ item }) => {
           style={{ y, x, rotate, opacity }}
           className={`max-w-3xl m-4 ml-8 ${item.cardColor} rounded-lg shadow-lg hover:shadow-2xl overflow-hidden transition-shadow duration-300 ease-in-out`}
         >
-          <div
-            className="bg-cover bg-center h-64 w-full"
-            style={{
-              backgroundImage: `url(${item.url}`,
-              backgroundSize: "cover",
-              backgroundRepeat: "no-repeat",
-            }}
-          ></div>
+          {item.id != 0 && (
+            <div
+              className="bg-cover bg-center h-64 w-full"
+              style={{
+                backgroundImage: `url(${item.url}`,
+                backgroundSize: "cover",
+                backgroundRepeat: "no-repeat",
+              }}
+            ></div>
+          )}
 
           <div className="p-6">
-            <h2 className="text-xl font-bold mb-3">{item.title}</h2>
+            <h2
+              className={`${
+                item.id === 0 ? "md:text-8xl text-7xl " : "text-xl"
+              }  font-bold mb-3`}
+            >
+              {item.title}
+            </h2>
             <p
               className={`${
                 item.id === 1 ? "text-sm" : "text-lg"
@@ -109,14 +126,16 @@ const Singles = ({ item }) => {
             >
               {item.text}
             </p>
-            <a
-              href={`${item.websiteURL}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`inline-block ${item.btnColor} text-white font-bold py-2 px-4 rounded focus:outline-none transition-colors duration-200`}
-            >
-              Visit Project
-            </a>
+            {item.id != 0 && (
+              <a
+                href={`${item.websiteURL}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`inline-block ${item.btnColor} text-white font-bold py-2 px-4 rounded focus:outline-none transition-colors duration-200`}
+              >
+                Visit Project
+              </a>
+            )}
           </div>
         </motion.div>
       </div>
@@ -185,7 +204,7 @@ const ScrollAnimations = () => {
           opacity: progressBarOpacity, // Use dynamic opacity
         }}
       />
-      <ProjectsIntro />
+
       <div>
         {items.map((item, index) => (
           <Singles key={index} item={item} />
