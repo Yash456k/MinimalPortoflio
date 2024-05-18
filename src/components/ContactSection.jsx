@@ -27,23 +27,25 @@ const ContactsSection = () => {
   return (
     <motion.section
       id="contact"
-      className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-purple-500 to-indigo-800 text-white"
+      className="flex flex-col items-center justify-center bg-gradient-to-b from-purple-500 to-indigo-800 text-white"
     >
       <motion.div
         variants={parentVariant}
         initial="initial"
         whileInView="animate"
         viewport={{ once: true }}
-        className="max-w-5xl m-4 p-8 bg-white rounded-lg shadow-lg"
+        className=" max-w-5xl m-2 p-3 bg-white rounded-lg shadow-lg"
       >
-        <h2 className="text-4xl font-bold mb-6 text-gray-800">Contact Me</h2>
-        <div className="text-black grid grid-cols-1 md:grid-cols-2 gap-8">
+        <h2 className="md:text-4xl text-3xl font-bold mb-6 text-gray-800">
+          Contact Me
+        </h2>
+        <div className="text-black grid grid-cols-1 md:grid-cols-2 md:gap-8 gap-3">
           <motion.div
             variants={childVariant}
-            className="p-4 bg-gray-100 rounded-lg shadow-lg"
+            className="p-2 md:p-4 bg-gray-100 rounded-lg shadow-lg"
           >
             <h3 className="text-2xl font-semibold mb-2">Email</h3>
-            <p className="text-lg mb-4">yash456k@gmail.com</p>
+            <p className="text-lg mb-2">yash456k@gmail.com</p>
             <a
               href="mailto:yash456k@gmail.com"
               className="inline-block bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none transition-colors duration-200"
@@ -53,7 +55,7 @@ const ContactsSection = () => {
           </motion.div>
           <motion.div
             variants={childVariant}
-            className="p-4 bg-gray-100 rounded-lg shadow-lg"
+            className="p-2 md:p-4 bg-gray-100 rounded-lg shadow-lg"
           >
             <h3 className="text-2xl font-semibold mb-2">Twitter</h3>
             <p className="text-lg mb-4">@yash654k</p>
@@ -68,7 +70,7 @@ const ContactsSection = () => {
           </motion.div>
           <motion.div
             variants={childVariant}
-            className="p-4 bg-gray-100 rounded-lg shadow-lg"
+            className="p-2 md:p-4 bg-gray-100 rounded-lg shadow-lg"
           >
             <h3 className="text-2xl font-semibold mb-2">LinkedIn</h3>
             <p className="text-lg mb-4">linkedin.com/in/yash-khambhatta</p>
@@ -83,7 +85,7 @@ const ContactsSection = () => {
           </motion.div>
           <motion.div
             variants={childVariant}
-            className="p-4 bg-gray-100 rounded-lg shadow-lg"
+            className="p-2 md:p-4 bg-gray-100 rounded-lg shadow-lg"
           >
             <h3 className="text-2xl font-semibold mb-2">Github</h3>
             <p className="text-lg mb-4">Yash456k</p>

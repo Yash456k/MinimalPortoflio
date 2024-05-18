@@ -8,7 +8,7 @@ body {
   overflow-x: hidden;
   margin: 0;
   padding: 0;
-  background: blue; /* Light background to see progress bar */
+  background: white; /* Light background to see progress bar */
 }
 
 section {
