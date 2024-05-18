@@ -65,13 +65,13 @@ const Singles = ({ item }) => {
     target: refNew,
   });
 
-  const y = useSpring(useTransform(scrollYProgress, [1, 0.5], [-300, 0]), {
+  const y = useSpring(useTransform(scrollYProgress, [1, 0.6], [-300, 0]), {
     stiffness: 400,
     damping: 30,
     mass: 3,
   });
 
-  const opacity = useSpring(useTransform(scrollYProgress, [1, 0.5], [0, 1]), {
+  const opacity = useSpring(useTransform(scrollYProgress, [1, 0.6], [0, 1]), {
     stiffness: 1000,
     mass: 8,
     damping: 200,
@@ -160,7 +160,7 @@ const ScrollAnimations = () => {
       const { scrollTop, scrollHeight, clientHeight } =
         document.documentElement;
       const totalScrollHeight = scrollHeight - clientHeight;
-      const startFade = totalScrollHeight * 0.7; // Adjust based on when you want to start fading out the bar
+      const startFade = totalScrollHeight * 0.8; // Adjust based on when you want to start fading out the bar
       const endFade = totalScrollHeight;
 
       if (scrollTop < startFade) {
