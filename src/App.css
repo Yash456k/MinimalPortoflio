@@ -18,7 +18,7 @@ section {
   align-items: center;
   justify-content: center;
   position: relative;
-
+  scroll-snap-align: center;
   overflow: hidden;
 }
 
@@ -38,9 +38,5 @@ section {
   .progress-bar {
     width: 12px;
     left: 0.5rem;
-  }
-
-  section {
-    scroll-snap-align: Not;
   }
 }

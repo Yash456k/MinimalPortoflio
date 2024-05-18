@@ -7,7 +7,7 @@ const items = [
     id: 0,
     title: `My Projects!`,
     text: ``,
-    color: "bg-black",
+    color: "bg-gray-600",
     cardColor: "bg-white",
     textColor: "text-black",
     btnColor: "bg-black",
@@ -65,30 +65,17 @@ const Singles = ({ item }) => {
     target: refNew,
   });
 
-  const y = useSpring(
-    useTransform(scrollYProgress, [0, 0.01, 0.99, 1], [-200, 0, 0, 200]),
-    { stiffness: 400, damping: 30, mass: 3 }
-  );
+  const y = useSpring(useTransform(scrollYProgress, [1, 0.5], [-300, 0]), {
+    stiffness: 400,
+    damping: 30,
+    mass: 3,
+  });
 
-  const opacity = useSpring(
-    useTransform(scrollYProgress, [1, 0.99, 0.01, 0], [0.4, 1, 1, 0]),
-    {
-      stiffness: 1000,
-      mass: 8,
-      damping: 200,
-    }
-  );
-
-  const x = useSpring(
-    useTransform(scrollYProgress, [0.5, 0.49, 0], [0, 10, 400]),
-    {
-      stiffness: 300,
-      mass: 10,
-      damping: 100,
-    }
-  );
-
-  const rotate = useTransform(scrollYProgress, [0.5, 0], ["0deg", "20deg"]);
+  const opacity = useSpring(useTransform(scrollYProgress, [1, 0.5], [0, 1]), {
+    stiffness: 1000,
+    mass: 8,
+    damping: 200,
+  });
 
   return (
     <motion.section
@@ -96,8 +83,7 @@ const Singles = ({ item }) => {
     >
       <div>
         <motion.div
-          ref={refNew}
-          style={{ y, x, rotate, opacity }}
+          style={{ y, opacity }}
           className={`max-w-3xl m-4 ml-8 ${item.cardColor} rounded-lg shadow-lg hover:shadow-2xl overflow-hidden transition-shadow duration-300 ease-in-out`}
         >
           {item.id != 0 && (
@@ -113,6 +99,7 @@ const Singles = ({ item }) => {
 
           <div className="p-6">
             <h2
+              ref={refNew}
               className={`${
                 item.id === 0 ? "md:text-8xl text-7xl " : "text-xl"
               }  font-bold mb-3`}
