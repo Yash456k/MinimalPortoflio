@@ -7,7 +7,7 @@ const items = [
     id: 0,
     title: `My Projects!`,
     text: ``,
-    color: "bg-gray-600",
+    color: "bg-[#DFD0B8]",
     cardColor: "bg-white",
     textColor: "text-black",
     btnColor: "bg-black",

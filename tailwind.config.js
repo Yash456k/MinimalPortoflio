@@ -7,6 +7,8 @@ export default {
         custom: ["Courgette", "cursive"],
         customSerif: ["Playfair Display", "serif"],
         sketch: ["Londrina Sketch", "sans-serif"],
+        smooth: ["Poetsen One", "sans-serif"],
+        acme: ["Acme", "sans-serif"],
       },
     },
   },
