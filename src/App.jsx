@@ -6,18 +6,19 @@ import Technology from "./components/Technology";
 import ProjectsIntro from "./components/ProjectsIntro";
 import SidebarToggle from "./components/SidebarToggle";
 import SkillsPage from "./components/SkillsPage";
+import ContactsSection from "./components/ContactSection";
 
 function App() {
   return (
     <div>
-      {/* <SidebarToggle /> */}
+      <SidebarToggle />
       <HomePageSection />
 
       <ScrollAnimations />
 
       <SkillsPage />
 
-      {/* <HomePageSection /> */}
+      <ContactsSection />
     </div>
   );
 }

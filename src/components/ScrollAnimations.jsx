@@ -5,6 +5,7 @@ import ProjectsIntro from "./ProjectsIntro";
 const items = [
   {
     id: 0,
+    idid: "projects",
     title: `My Projects!`,
     text: ``,
     color: "bg-[#DFD0B8]",
@@ -79,6 +80,7 @@ const Singles = ({ item }) => {
 
   return (
     <motion.section
+      id={item.idid} // Ensure the section has the correct ID
       className={`flex flex-col items-center justify-center full-height ${item.color} ${item.textColor}`}
     >
       <div>
@@ -101,7 +103,7 @@ const Singles = ({ item }) => {
             <h2
               ref={refNew}
               className={`${
-                item.id === 0 ? "md:text-8xl text-7xl " : "text-xl"
+                item.id === 0 ? "md:text-8xl text-7xl " : "text-3xl"
               }  font-bold mb-3`}
             >
               {item.title}
@@ -129,7 +131,6 @@ const Singles = ({ item }) => {
     </motion.section>
   );
 };
-
 const ScrollAnimations = () => {
   const ref = useRef(null);
   const [progressBarOpacity, setProgressBarOpacity] = useState(1);

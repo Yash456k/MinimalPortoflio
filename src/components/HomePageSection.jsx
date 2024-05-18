@@ -32,7 +32,7 @@ const Basic = () => {
     show: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.3,
+        staggerChildren: 0.5,
       },
     },
   };
@@ -45,6 +45,7 @@ const Basic = () => {
   return (
     <section
       className={`${isBlack ? "bg-black" : "bg-[#F5F5DC]"} flex relative`}
+      id="Home"
     >
       <div
         ref={scope}

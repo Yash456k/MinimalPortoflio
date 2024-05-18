@@ -32,7 +32,10 @@ const animationVariant = {
 
 const SkillsPage = () => {
   return (
-    <section className="bg-emerald-950 min-h-screen flex justify-center items-center">
+    <section
+      id="skills"
+      className="bg-emerald-950 min-h-screen flex justify-center items-center"
+    >
       <div className="h-full md:w-1/2 w-3/4 flex flex-col justify-evenly items-center">
         <div className="md:text-8xl text-6xl font-custom text-white text-center">
           My Skills
@@ -41,7 +44,7 @@ const SkillsPage = () => {
           {skills.map((skill, index) => (
             <motion.li
               key={index}
-              className="bg-white border-black px-5 py-3 rounded-xl shadow-lg font-acme"
+              className="md:text-lg text-base bg-white border-black px-5 py-3 rounded-xl shadow-lg font-acme"
               variants={animationVariant}
               initial="initial"
               whileInView="animate"
