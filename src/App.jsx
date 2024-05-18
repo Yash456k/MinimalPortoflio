@@ -9,6 +9,7 @@ import SkillsPage from "./components/SkillsPage";
 import ContactsSection from "./components/ContactSection";
 
 function App() {
+  const currentYear = new Date().getFullYear();
   return (
     <div>
       <SidebarToggle />
@@ -19,6 +20,9 @@ function App() {
       <SkillsPage />
 
       <ContactsSection />
+      <footer className="bg-gray-800 text-white py-4 text-center">
+        <p className="text-lg">Yash Khambhatta &copy; {currentYear}</p>
+      </footer>
     </div>
   );
 }
